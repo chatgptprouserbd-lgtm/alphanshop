@@ -2,7 +2,8 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
     <title>ALPHAN SHOP | Premium Gaming Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -19,7 +20,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: var(--bg); color: white; overflow-x: hidden; }
 
-        /* Welcome Page Style */
+        /* Welcome Page - EXACT AS SCREENSHOT */
         #welcomeScreen {
             position: fixed; inset: 0; background: #030014; z-index: 9999;
             display: flex; align-items: center; justify-content: center;
@@ -50,7 +51,7 @@
         .logo { font-size: 22px; font-weight: 900; }
         .logo span { color: var(--primary); }
 
-        /* Slider Styles */
+        /* Slider Section */
         .swiper { width: 92%; max-width: 1100px; height: 350px; margin: 25px auto; border-radius: 20px; border: 1px solid rgba(139, 92, 246, 0.3); overflow: hidden; }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -71,13 +72,13 @@
 
         .btn-buy { width: 100%; padding: 18px; background: linear-gradient(45deg, var(--primary), var(--accent)); color: white; border: none; border-radius: 15px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
 
-        /* Why Choose Us */
+        /* Why Choose Us Section */
         .why-us { margin-top: 80px; text-align: center; }
         .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
         .why-card { background: #0d0a24; padding: 35px 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.03); }
         .why-icon { width: 60px; height: 60px; background: var(--primary); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 20px; color: white; }
 
-        /* Modal & AGER PAYMENT DETAILS */
+        /* Modal & Payment Rules (AGER DITAILS) */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 2000; align-items: center; justify-content: center; padding: 15px; }
         .modal-content { background: #0d0a24; width: 100%; max-width: 500px; border-radius: 35px; padding: 30px; border: 1px solid var(--primary); max-height: 90vh; overflow-y: auto; }
         
@@ -85,9 +86,10 @@
         .payment-rules h4 { color: var(--primary); margin-bottom: 8px; text-transform: uppercase; font-size: 14px; }
         
         .number-box { background: linear-gradient(135deg, #1e1b4b 0%, #0d0a24 100%); padding: 20px; border-radius: 20px; margin: 15px 0; text-align: center; border: 1px dashed var(--gold); cursor: pointer; position: relative; }
+        .number-box strong { color: #ffffff !important; }
         .copy-badge { position: absolute; top: -12px; right: 15px; background: var(--gold); color: #000; font-size: 11px; padding: 3px 10px; border-radius: 6px; font-weight: 800; display: none; }
         
-        input { width: 100%; padding: 15px; background: #030014; border: 1px solid #1e1b4b; border-radius: 14px; color: white; margin-bottom: 12px; outline: none; }
+        input { width: 100%; padding: 15px; background: #030014; border: 1px solid #1e1b4b; border-radius: 14px; color: white; margin-bottom: 12px; outline: none; font-size: 16px; }
         
         #successPopup { display: none; position: fixed; inset: 0; background: #030014; z-index: 3000; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 
@@ -124,7 +126,7 @@
 </div>
 
 <div class="container">
-    <h2 class="section-title">Premium <span>Packages</span></h2>
+    <h2 class="section-title">Our <span>Premium Services</span></h2>
     
     <div class="grid">
         <div class="card">
@@ -136,7 +138,7 @@
                 <li><i class="fas fa-crosshairs"></i> Advanced Aimbot & ESP Features</li>
                 <li><i class="fas fa-user-shield"></i> Dedicated VIP Support 24/7</li>
             </ul>
-            <button class="btn-buy" onclick="openOrder('iPhone Drip Client', 'ফার্স্ট টাইম অ্যাক্টিভেশন ৪০০০ টাকা। পরবর্তী মাস থেকে ২৫০০ টাকা। এটি আইফোনের সবথেকে নিরাপদ ও প্রিমিয়াম অ্যান্টি-ব্যান ক্লায়েন্ট। ১০০% মেইন আইডি সেফ।')">Buy Now</button>
+            <button class="btn-buy" onclick="openOrder('iPhone Drip Client', 'ফার্স্ট টাইম অ্যাক্টিভেশন ৪০০০ টাকা। পরবর্তী মাস থেকে ২৫০০ টাকা। এটি আইফোনের সবথেকে নিরাপদ ও প্রিমিয়াম অ্যান্টি-ব্যান ক্লায়েন্ট। ১০০% মেইন আইডি সেফ।')">Buy Now</button>
         </div>
 
         <div class="card">
@@ -160,8 +162,9 @@
                 <li><i class="fas fa-shield-virus"></i> 50% Anti-Ban Guarantee</li>
                 <li><i class="fas fa-bolt"></i> White moving lines effect included</li>
                 <li><i class="fas fa-sync"></i> 白色(White) 444 move + Antenna</li>
+                <li><i class="fas fa-bullseye"></i> Target enemy faster than ever</li>
             </ul>
-            <button class="btn-buy" onclick="openOrder('FF VIP Glitch Config', 'এটি অ্যান্ড্রয়েড ডিভাইসের জন্য প্রিমিয়াম গ্লিচ ফাইল। এতে হোয়াইট ৪৪৪ এবং এন্টেনা হেড পাবেন। মেইন আইডিতে ব্যবহারের জন্য নিরাপদ না। প্রতি মাসে আপডেট পাবেন।')">Buy Now</button>
+            <button class="btn-buy" onclick="openOrder('FF VIP Glitch Config', 'এটি অ্যান্ড্রয়েড ডিভাইসের জন্য প্রিমিয়াম গ্লিচ ফাইল। এতে হোয়াইট ৪৪৪ এবং এন্টেনা হেড পাবেন। মেইন আইডিতে ব্যবহারের জন্য নিরাপদ না। প্রতি মাসে আপডেট পাবেন।')">Buy Now</button>
         </div>
 
         <div class="card">
@@ -171,10 +174,10 @@
                 <li><i class="fas fa-user-ninja"></i> Rank Push Using GM Panel User</li>
                 <li><i class="fas fa-trophy"></i> Grand Master Level Ranked Play</li>
                 <li><i class="fas fa-crown"></i> Perfect Ranked Lobbies for Booyah</li>
-                <li><i class="fas fa-user-shield"></i> 100% Account Safety and Non-ban</li>
+                <li><i class="fas fa-user-shield"></i> 100% Account Safety (Non-ban)</li>
                 <li><i class="fas fa-tachometer-alt"></i> Fast and Safe Push Service</li>
             </ul>
-            <button class="btn-buy" onclick="openOrder('Paid Rank Push Group', 'আমাদের প্যানেল ইউজারদের সাথে ম্যাচ খেলে দ্রুত গ্র্যান্ডমাস্টার পুশ করুন। কোনো হ্যাক আপনার আইডিতে লাগবে না, তাই আইডি ১০০% সেফ। প্রতি ম্যাচ ৫৯ টাকা।')">Buy Now</button>
+            <button class="btn-buy" onclick="openOrder('Paid Rank Push Group', 'আমাদের প্যানেল ইউজারদের সাথে ম্যাচ খেলে দ্রুত গ্র্যান্ডমাস্টার পুশ করুন। কোনো হ্যাক আপনার আইডিতে লাগবে না, তাই আইডি ১০০% সেফ। প্রতি ম্যাচ ৫৯ টাকা।।')">Buy Now</button>
         </div>
 
         <div class="card">
@@ -182,12 +185,25 @@
             <div class="price-tag">1100৳ <span>/ Per Month</span></div>
             <ul class="features">
                 <li><i class="fas fa-crosshairs"></i> 99.9% Pure Auto Headshot</li>
-                <li><i class="fas fa-gem"></i> Dedicated VIP ESP: See Enemies through Walls</li>
-                <li><i class="fas fa-map-marked-alt"></i> Location ESP, Name, Health & Dist ESP</li>
-                <li><i class="fas fa-shield-alt"></i> All Android Root Devices Fully Safe</li>
-                <li><i class="fas fa-user-secret"></i> Bypass Official Anti-Cheat System</li>
+                <li><i class="fas fa-gem"></i> Dedicated VIP ESP: See Enemies Wall</li>
+                <li><i class="fas fa-map-marked-alt"></i> Location ESP, Name, Health ESP</li>
+                <li><i class="fas fa-skull"></i> High Damage Headshot Feature</li>
+                <li><i class="fas fa-user-secret"></i> Bypass Anti-Cheat System</li>
             </ul>
             <button class="btn-buy" onclick="openOrder('Android Panel', 'রুট ডিভাইসের জন্য সবথেকে শক্তিশালী প্যানেল। এতে ৯৯% হেডশট এবং ফুল ইএসপি লোকেশন পাবেন। প্রতি মাসে ১১০০ টাকা। গ্যারেনা সার্ভারে এটি ইনভিজিবল।')">Buy Now</button>
+        </div>
+
+        <div class="card">
+            <h2>Android Root Setup</h2>
+            <div class="price-tag">399৳ <span>/ One-Time Fix</span></div>
+            <ul class="features">
+                <li><i class="fas fa-video"></i> Live Support: স্ক্রিন শেয়ারের মাধ্যমে ফুল গাইড</li>
+                <li><i class="fas fa-microchip"></i> Custom Files: ফোনের মডেল অনুযায়ী ফাইল চেক</li>
+                <li><i class="fas fa-shield-alt"></i> Safe Method: ডাটা লস ছাড়া রুটিং সাপোর্ট (যদি সম্ভব হয়)</li>
+                <li><i class="fas fa-user-check"></i> Step-by-Step: আমরা নিজে রুট করে দিবো</li>
+                <li><i class="fas fa-exclamation-triangle" style="color: #ff4757;"></i> পেমেন্টের আগে অবশ্যই এডমিনের সাথে কথা বলুন</li>
+            </ul>
+            <button class="btn-buy" onclick="openOrder('Android Root Setup', 'সতর্কতা: সব ফোনের ফাইল আমাদের কাছে থাকে না। তাই পেমেন্ট করার আগে অবশ্যই WhatsApp-এ এডমিনের সাথে কথা বলে নিশ্চিত হয়ে নিন। আমরা স্ক্রিন শেয়ারের মাধ্যমে আপনাকে ফুল গাইড করবো।')">Buy Now</button>
         </div>
     </div>
 
@@ -197,7 +213,7 @@
             <div class="why-card">
                 <div class="why-icon"><i class="fas fa-bolt"></i></div>
                 <h3>FAST DELIVERY</h3>
-                <p>অর্ডার করার ৩০ মিনিটের মধ্যে আপনার সার্ভিস এক্টিভেট করে দেওয়া হবে।</p>
+                <p>অর্ডার করার ৩০ মিনিটের মধ্যে আপনার সার্ভিস এক্টিভেট করে দেওয়া হবে।</p>
             </div>
             <div class="why-card">
                 <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
@@ -207,7 +223,7 @@
             <div class="why-card">
                 <div class="why-icon"><i class="fas fa-headset"></i></div>
                 <h3>24/7 SUPPORT</h3>
-                <p>যেকোনো সমস্যায় আমাদের হোয়াটসঅ্যাপে সরাসরি মেসেজ দিন যেকোনো সময়।</p>
+                <p>যেকোনো समस्याয় আমাদের হোয়াটসঅ্যাপে সরাসরি মেসেজ দিন যেকোনো সময়।</p>
             </div>
         </div>
     </div>
@@ -218,14 +234,14 @@
         <h2 id="modalTitle" style="color: var(--primary); font-size: 20px;">Product Details</h2>
         
         <div class="payment-rules">
-            <h4>⚠️ পেমেন্ট রুলস এবং নিয়মাবলী:</h4>
-            * নিচে দেওয়া নাম্বারে শুধুমাত্র **Send Money** করবেন।<br>
+            <h4>⚠️ পেমেন্ট রুলস এবং নিয়মাবলী:</h4>
+            * নিচে দেওয়া নাম্বারে শুধুমাত্র **Send Money** করবেন।<br>
             * টাকা পাঠানোর পর **TrxID** অবশ্যই কপি করে এখানে দিবেন।<br>
             * আপনার সঠিক **WhatsApp** নাম্বার দিন যাতে আমরা যোগাযোগ করতে পারি।<br>
             * ভুল তথ্য দিলে অর্ডার বাতিল হতে পারে।
         </div>
         
-        <div class="info-box" id="modalDesc" style="font-size: 13px; color: #bbb; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; margin-bottom: 15px;"></div>
+        <div class="info-box" id="modalDesc" style="font-size: 13px; color: #bbb; margin-bottom: 15px;"></div>
 
         <div class="number-box" onclick="copyNum()">
             <span style="font-size:10px; color:var(--gold); font-weight: 700;">CLICK TO COPY NUMBER</span>
@@ -295,6 +311,24 @@
         if (m.paused) { m.play(); i.className = "fas fa-volume-up"; } 
         else { m.pause(); i.className = "fas fa-volume-mute"; }
     }
+    
+// Right Click Protection with Popup
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert("FUCK HACKER 🖕 \n\nDon't try to steal our code!");
+});
+
+// Keyboard Shortcuts Protection (F12, Ctrl+U, etc.)
+document.onkeydown = function(e) {
+    if (e.keyCode == 123 || 
+        (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67 || e.keyCode == 74)) || 
+        (e.ctrlKey && e.keyCode == 85)) {
+        
+        alert("FUCK HACKER 🖕 \n\nInspect element is disabled!");
+        return false;
+    }
+};
+    
 </script>
 </body>
 </html>
