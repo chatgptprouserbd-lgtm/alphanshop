@@ -19,6 +19,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background: var(--bg); color: white; overflow-x: hidden; background-image: radial-gradient(circle at top right, #1e1b4b, transparent); }
 
+        /* Welcome Overlay */
+        #welcomeScreen {
+            position: fixed; inset: 0; background: #060212; z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; background-image: radial-gradient(circle at center, #1e1b4b, #060212);
+            transition: 0.8s ease-in-out;
+        }
+
         header {
             display: flex; justify-content: space-between; align-items: center; padding: 15px 5%;
             background: rgba(0,0,0,0.7); backdrop-filter: blur(15px);
@@ -67,9 +75,8 @@
             max-height: 90vh; overflow-y: auto;
         }
         .info-box { background: rgba(139, 92, 246, 0.1); padding: 15px; border-radius: 12px; margin: 15px 0; border-left: 4px solid var(--primary); font-size: 12px; line-height: 1.5; color: #ddd; }
-        
         .payment-warning { background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #f87171; padding: 12px; border-radius: 10px; font-size: 11px; margin-bottom: 15px; text-align: left; }
-
+        
         input { width: 100%; padding: 12px; background: #060212; border: 1px solid #2d244e; border-radius: 10px; color: white; margin-bottom: 12px; outline: none; }
 
         #successPopup { 
@@ -78,7 +85,8 @@
         }
 
         .f-contact { position: fixed; bottom: 20px; right: 20px; z-index: 100; display: flex; flex-direction: column; gap: 10px; }
-        .f-contact a { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        .f-contact a, .music-control { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; }
+        .music-control { background: rgba(168, 85, 247, 0.4); border: 1px solid var(--primary); }
 
         @media (max-width: 768px) {
             .swiper { height: 180px; width: 95%; }
@@ -89,6 +97,20 @@
 </head>
 <body>
 
+<div id="welcomeScreen">
+    <div style="border: 2px solid var(--primary); padding: 40px; border-radius: 30px; background: rgba(139, 92, 246, 0.05); backdrop-filter: blur(10px); max-width: 90%;">
+        <h1 style="font-size: 28px; font-weight: 900; color: white; margin-bottom: 10px;">WELCOME TO <br><span style="color: #a855f7; text-shadow: 0 0 15px #a855f7;">ALPHAN GAMING SHOP</span></h1>
+        <p style="color: #94a3b8; font-size: 14px; margin-bottom: 30px;">Premium Hacks & Best Service</p>
+        <button onclick="enterShop()" style="padding: 15px 40px; background: linear-gradient(45deg, #a855f7, #ec4899); color: white; border: none; border-radius: 50px; font-weight: 800; cursor: pointer; font-size: 18px; text-transform: uppercase;">
+            <i class="fas fa-play"></i> Enter Shop
+        </button>
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/xvlv5m.mp3" type="audio/mpeg">
+</audio>
+
 <header>
     <div class="logo">ALPHAN <span>SHOP</span></div>
     <div style="color:var(--primary); font-size: 11px;"><i class="fas fa-check-circle"></i> OFFICIAL</div>
@@ -96,8 +118,8 @@
 
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://via.placeholder.com/1000x350/1e1b4b/ffffff?text=Premium+Gaming+Hacks" alt="B1"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/1000x350/4c1d95/ffffff?text=Instant+Delivery" alt="B2"></div>
+        <div class="swiper-slide"><img src="https://i.postimg.cc/MH8Y44cJ/ios.jpg" alt="iOS Banner"></div>
+        <div class="swiper-slide"><img src="https://i.postimg.cc/hG6s8hcq/glorybot.jpg" alt="Glory Bot Banner"></div>
     </div>
     <div class="swiper-pagination"></div>
 </div>
@@ -112,9 +134,10 @@
                 <li><i class="fas fa-shield-virus"></i> 100% Fully Anti-Ban (Safe Main ID)</li>
                 <li><i class="fas fa-microchip"></i> Supports All iOS Versions (No Jailbreak)</li>
                 <li><i class="fas fa-rocket"></i> Smooth Performance (Zero Lag)</li>
-                <li><i class="fas fa-headset"></i> VIP Private Support</li>
+                <li><i class="fas fa-crosshairs"></i> Advanced Aimbot & ESP Features</li>
+                <li><i class="fas fa-user-shield"></i> Dedicated VIP Support</li>
             </ul>
-            <button class="btn-buy" onclick="openOrder('iPhone Drip Client', 'এটি আইফোনের সবথেকে প্রিমিয়াম অ্যান্টি-ব্যান ক্লায়েন্ট। ফার্স্ট টাইম অ্যাক্টিভেশন ৪০০০ টাকা এবং পরবর্তী মাস থেকে মাত্র ২৫০০ টাকা। এটি ব্যবহার করা একদম সহজ এবং মেইন আইডির জন্য ১০০% সেফ।')">Buy Now</button>
+            <button class="btn-buy" onclick="openOrder('iPhone Drip Client', 'ফার্স্ট টাইম অ্যাক্টিভেশন ৪০০০ টাকা। পরবর্তী মাস থেকে মাত্র ২৫০০ টাকা। এটি আইফোনের সবথেকে নিরাপদ ও প্রিমিয়াম অ্যান্টি-ব্যান ক্লায়েন্ট। এটি ব্যবহার করা একদম সহজ এবং মেইন আইডির জন্য ১০০% সেফ।')">Buy Now</button>
         </div>
         <div class="card">
             <h2>FF Guild Glory Bot</h2>
@@ -124,8 +147,9 @@
                 <li><i class="fas fa-clock"></i> 8 Hours Non-stop Working</li>
                 <li><i class="fas fa-star"></i> Auto Glory Increase Every Match</li>
                 <li><i class="fas fa-shield"></i> 100% Anti-Ban Guard</li>
+                <li><i class="fas fa-check-circle"></i> Automatic Match Making</li>
             </ul>
-            <button class="btn-buy" onclick="openOrder('Guild Glory Bot', 'আপনার গিল্ডে ৪টি বট কাজ করবে টানা ৮ ঘণ্টার জন্য। মনে রাখবেন, বট আপনাকে কত গ্লোরি দিবে তা সম্পূর্ণ আপনার লাক (Luck) এর ওপর নির্ভর করে। অনেক সময় সার্ভার ইস্যুর কারণে গ্লোরি কম-বেশি হতে পারে।')">Buy Now</button>
+            <button class="btn-buy" onclick="openOrder('Guild Glory Bot', 'আপনার গিল্ডে ৪টি বট কাজ করবে টানা ৮ ঘণ্টার জন্য। মনে রাখবেন, বট আপনাকে কত গ্লোরি দিবে তা সম্পূর্ণ আপনার লাক (Luck) এর ওপর নির্ভর করে। অনেক সময় সার্ভার ইস্যুর কারণে গ্লোরি কম-বেশি হতে পারে। গিল্ডের সব সেটিং ডিফল্ট করে রাখতে হবে।')">Buy Now</button>
         </div>
     </div>
 
@@ -135,17 +159,17 @@
             <div class="why-card">
                 <div class="why-icon"><i class="fas fa-bolt"></i></div>
                 <h3>INSTANT DELIVERY</h3>
-                <p>Get your keys delivered automatically within seconds after payment.</p>
+                <p>Get your product keys and service activated automatically within seconds after payment verification.</p>
             </div>
             <div class="why-card">
                 <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3>100% SECURE</h3>
-                <p>Safe & encrypted payments with guarantee.</p>
+                <p>We provide fully encrypted and safe payment methods. Your account security is our top priority.</p>
             </div>
             <div class="why-card">
                 <div class="why-icon"><i class="fas fa-headset"></i></div>
                 <h3>24/7 SUPPORT</h3>
-                <p>Our team is always available to help you with any issues.</p>
+                <p>Our dedicated support team is always available to help you with any technical issues or questions.</p>
             </div>
         </div>
     </div>
@@ -154,23 +178,17 @@
 <div id="orderModal" class="modal">
     <div class="modal-content">
         <h2 id="modalTitle" style="color: var(--primary); font-size: 20px;">Product Details</h2>
-        <div class="info-box">
-            <h4 style="color:var(--primary); margin-bottom:5px;">প্রোডাক্ট ইনস্ট্রাকশন:</h4>
-            <p id="modalDesc"></p>
-        </div>
-
+        <div class="info-box"><p id="modalDesc"></p></div>
         <div class="payment-warning">
             <strong>⚠️ পেমেন্ট সতর্কবার্তা:</strong><br>
-            ১. শুধুমাত্র <b>Send Money</b> করবেন।<br>
-            ২. ভুল নাম্বারে টাকা পাঠালে <b>Alphan Shop</b> দায়ী থাকবে না।<br>
-            ৩. পেমেন্ট শেষে সঠিক <b>TrxID</b> দিন, ভুল TrxID দিলে অর্ডার বাতিল হবে।
+            ১. শুধুমাত্র <b>Send Money</b> করবেন। ভুল নাম্বারে টাকা পাঠালে আলফান শপ দায়ী থাকবে না।<br>
+            ২. পেমেন্ট শেষে সঠিক <b>TrxID</b> দিন। ভুল TrxID দিলে আপনার অর্ডার অটোমেটিক বাতিল হয়ে যাবে।<br>
+            ৩. কোনো সমস্যা হলে সরাসরি হোয়াটসঅ্যাপে যোগাযোগ করুন।
         </div>
-
         <div style="text-align:center; background:#1e1b4b; padding:12px; border-radius:15px; margin-bottom:15px; border:1px dashed var(--success);">
             <p style="font-size:11px; color:var(--text-gray);">bKash/Nagad (Personal)</p>
             <strong style="font-size:18px; color:#fff;">01861316505</strong>
         </div>
-
         <form id="purchaseForm">
             <input type="text" id="trxid" placeholder="Transaction ID (TrxID) দিন" required>
             <input type="text" id="contactNum" placeholder="আপনার WhatsApp নম্বর দিন" required>
@@ -182,22 +200,41 @@
 
 <div id="successPopup">
     <i class="fas fa-check-circle" style="font-size: 60px; color: var(--success); margin-bottom: 20px;"></i>
-    <h2 style="color:#fff;">Order Received!</h2>
-    <p style="margin:20px 0; color:#cbd5e1; font-size: 14px; max-width: 300px;">আপনার TrxID এবং অর্ডার তথ্য আমাদের কাছে পৌঁছেছে। যাচাই শেষে আমরা যোগাযোগ করব।</p>
+    <h2>Order Confirmed!</h2>
+    <p style="margin:20px 0; color:#cbd5e1; font-size: 14px; max-width: 300px;">আপনার ট্রানজেকশন আইডি এবং অর্ডার তথ্য সফলভাবে পৌঁছেছে। যাচাই শেষে ৩০-৬০ মিনিটের মধ্যে আপনার সাথে যোগাযোগ করা হবে।</p>
     <button class="btn-buy" style="width: 180px;" onclick="location.reload()">Back Home</button>
 </div>
 
 <div class="f-contact">
-    <a href="https://wa.me/8801607254046" style="background: #25d366; margin-bottom:10px;"><i class="fab fa-whatsapp"></i></a>
+    <div class="music-control" onclick="toggleMusic()">
+        <i id="musicIcon" class="fas fa-volume-mute"></i>
+    </div>
+    <a href="https://wa.me/8801607254046" style="background: #25d366;"><i class="fab fa-whatsapp"></i></a>
     <a href="https://t.me/+8801607254046" style="background: #0088cc;"><i class="fab fa-telegram"></i></a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    const BOT_TOKEN = '{{BOT_TOKEN}}';
-    const CHAT_ID = '{{CHAT_ID}}';
+    const BOT_TOKEN = '8771196443:AAFWMBlnoQwemfP6aIl733ygiSm_ZVm5DwU';
+    const CHAT_ID = '6572635076';
+    const music = document.getElementById('bgMusic');
+    const mIcon = document.getElementById('musicIcon');
 
     new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3500 }, pagination: { el: ".swiper-pagination", clickable: true } });
+
+    function enterShop() {
+        const welcome = document.getElementById('welcomeScreen');
+        music.volume = 0.5;
+        music.play().catch(e => console.log("Play blocked"));
+        mIcon.className = "fas fa-volume-up";
+        welcome.style.opacity = "0";
+        setTimeout(() => { welcome.style.display = "none"; }, 800);
+    }
+
+    function toggleMusic() {
+        if (music.paused) { music.play(); mIcon.className = "fas fa-volume-up"; } 
+        else { music.pause(); mIcon.className = "fas fa-volume-mute"; }
+    }
 
     let currentProduct = "";
     function openOrder(name, desc) {
@@ -213,8 +250,7 @@
         const btn = document.getElementById('submitBtn');
         const trx = document.getElementById('trxid').value.trim();
         const phone = document.getElementById('contactNum').value.trim();
-        
-        btn.innerText = "Sending Order...";
+        btn.innerText = "Processing Order...";
         btn.disabled = true;
 
         const text = `🚀 *NEW ORDER RECEIVED*%0A━━━━━━━━━━━━━━━━━%0A📦 *Product:* ${currentProduct}%0A💳 *TrxID:* ${trx}%0A📱 *Contact:* ${phone}`;
@@ -225,8 +261,8 @@
             document.getElementById('orderModal').style.display = 'none';
             document.getElementById('successPopup').style.display = 'flex';
             setTimeout(() => {
-                const waMessage = `Hello, I want to buy *${currentProduct}*. My TrxID is: *${trx}*`;
-                window.location.href = `https://wa.me/8801607254046?text=${waMessage}`;
+                const waMsg = `Hello, I want to buy *${currentProduct}*. My TrxID is: *${trx}*`;
+                window.location.href = `https://wa.me/8801607254046?text=${encodeURIComponent(waMsg)}`;
             }, 3000);
         } catch (err) {
             window.location.href = `https://wa.me/8801607254046?text=Order:${currentProduct}, TrxID:${trx}`;
